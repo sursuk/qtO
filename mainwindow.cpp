@@ -30,7 +30,7 @@ void MainWindow::paintEvent(QPaintEvent*)
 void MainWindow::drawStar(){
 
     QTransform transform;
-    transform.translate(100, 90);
+    transform.translate(x, y);
     transform.rotate(degree);
     painter->setTransform(transform);
 
@@ -49,16 +49,10 @@ void MainWindow::drawStar(){
 
     painter->drawPolygon(polygon1);
 }
-/*
-void MainWindow::on_turnRight_pressed()
-{
-
-}*/
-
 
 void MainWindow::on_turnRight_clicked()
 {
-    degree += 25;
+    degree += 45;
     repaint();
 }
 
@@ -67,19 +61,21 @@ void MainWindow::on_turnRight_clicked()
 
 void MainWindow::on_turnLeft_clicked()
 {
-    degree -= 25;
+    degree -= 45;
     repaint();
 }
 
 
 void MainWindow::on_mirrorHorizontal_clicked()
 {
-
+    x += 50;
+    repaint();
 }
 
 
 void MainWindow::on_mirrorVertical_clicked()
 {
-
+    y += 50;
+    repaint();
 }
 

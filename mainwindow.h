@@ -34,6 +34,8 @@ private:
     void drawStar();
 
     int degree = 0;
+    int x = 100;
+    int y = 90;
 
 };
 #endif // MAINWINDOW_H
