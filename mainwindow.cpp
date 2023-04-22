@@ -3,14 +3,11 @@
 #include "qpainter.h"
 #include <_mingw_mac.h>
 
-
-
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
 }
 
 MainWindow::~MainWindow()
@@ -20,7 +17,6 @@ MainWindow::~MainWindow()
 
 void MainWindow::paintEvent(QPaintEvent*)
  {
-
     painter = new QPainter(this);
     drawStar();
 
@@ -30,47 +26,54 @@ void MainWindow::paintEvent(QPaintEvent*)
 void MainWindow::drawStar(){
 
     QTransform transform;
-    transform.translate(100, 100); //размещение фигуры по координате
-    transform.rotate(degree); //вращение координат на нужный угол
+    transform.translate(110, 120); // Размещение фигуры по координате
+    transform.rotate(degree); // Вращение координат на нужный угол
+    transform.scale(sx,sy);
     painter->setTransform(transform);
 
-       //рисования полигона по точкам
+    // Рисование полигона по точкам
     polygon1.push_back(QPoint(-10, -10));
     polygon1.push_back(QPoint(0, -40));
     polygon1.push_back(QPoint(10, -10));
-
     polygon1.push_back(QPoint(40, 0));
     polygon1.push_back(QPoint(10, 10));
-
     polygon1.push_back(QPoint(0, 40));
     polygon1.push_back(QPoint(-10, 10));
-
     polygon1.push_back(QPoint(-40,0));
 
+    qDebug() << degree;
+
     painter->drawPolygon(polygon1);
+
+    QPainter painter1(this);
+    painter1.setPen(QPen(Qt::gray, 1, Qt::DashDotLine, Qt::RoundCap));
+    painter1.drawLine(110, 180, 110, 60);
+    painter1.drawLine(50, 120, 170, 120);
 }
 
-void MainWindow::on_turnRight_clicked()
+void MainWindow::on_turn_right_clicked()
 {
     degree += 15;
     repaint();
 }
 
-void MainWindow::on_turnLeft_clicked()
+void MainWindow::on_turn_left_clicked()
 {
     degree -= 15;
     repaint();
 }
 
-void MainWindow::on_mirrorHorizontal_clicked()
+void MainWindow::on_mirror_horizontal_clicked()
 {
-    degree = 90 - degree;
+    sy = sy * (-1);
+    degree = degree * (-1);
     repaint();
 }
 
-void MainWindow::on_mirrorVertical_clicked()
+void MainWindow::on_mirror_vertical_clicked()
 {
-    degree = 0 - degree;
+    sx = sx * (-1);
+    degree = degree * (-1);
     repaint();
 }
 

@@ -16,24 +16,25 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_turnRight_clicked();
+    void on_turn_right_clicked();
 
-    void on_turnLeft_clicked();
+    void on_turn_left_clicked();
 
-    void on_mirrorHorizontal_clicked();
+    void on_mirror_horizontal_clicked();
 
-    void on_mirrorVertical_clicked();
+    void on_mirror_vertical_clicked();
 
 private:
     Ui::MainWindow *ui;
+    // Градус, на который повернута фигура
+    qreal degree = 0;
+    qreal sx = 1;
+    qreal sy = 1;
 
     void paintEvent(QPaintEvent*);
     QPainter *painter;
     QVector<QPoint> polygon1;
 
     void drawStar();
-//градус на который повернута фигура
-    int degree = 0;
-
 };
 #endif // MAINWINDOW_H
