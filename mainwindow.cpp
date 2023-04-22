@@ -30,11 +30,11 @@ void MainWindow::paintEvent(QPaintEvent*)
 void MainWindow::drawStar(){
 
     QTransform transform;
-    transform.translate(x, y);
-    transform.rotate(degree);
+    transform.translate(100, 100); //размещение фигуры по координате
+    transform.rotate(degree); //вращение координат на нужный угол
     painter->setTransform(transform);
 
-
+       //рисования полигона по точкам
     polygon1.push_back(QPoint(-10, -10));
     polygon1.push_back(QPoint(0, -40));
     polygon1.push_back(QPoint(10, -10));
@@ -56,22 +56,17 @@ void MainWindow::on_turnRight_clicked()
     repaint();
 }
 
-
-
-
 void MainWindow::on_turnLeft_clicked()
 {
     degree -= 15;
     repaint();
 }
 
-
 void MainWindow::on_mirrorHorizontal_clicked()
 {
     degree = 90 - degree;
     repaint();
 }
-
 
 void MainWindow::on_mirrorVertical_clicked()
 {

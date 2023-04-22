@@ -32,10 +32,8 @@ private:
     QVector<QPoint> polygon1;
 
     void drawStar();
-
+//градус на который повернута фигура
     int degree = 0;
-    int x = 100;
-    int y = 90;
 
 };
 #endif // MAINWINDOW_H
