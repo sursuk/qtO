@@ -28,6 +28,7 @@ private:
     Ui::MainWindow *ui;
     // Градус, на который повернута фигура
     qreal degree = 0;
+    // Значения для отражения
     qreal sx = 1;
     qreal sy = 1;
 
