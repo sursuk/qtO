@@ -52,7 +52,7 @@ void MainWindow::drawStar(){
 
 void MainWindow::on_turnRight_clicked()
 {
-    degree += 45;
+    degree += 15;
     repaint();
 }
 
@@ -61,21 +61,21 @@ void MainWindow::on_turnRight_clicked()
 
 void MainWindow::on_turnLeft_clicked()
 {
-    degree -= 45;
+    degree -= 15;
     repaint();
 }
 
 
 void MainWindow::on_mirrorHorizontal_clicked()
 {
-    x += 50;
+    degree = 90 - degree;
     repaint();
 }
 
 
 void MainWindow::on_mirrorVertical_clicked()
 {
-    y += 50;
+    degree = 0 - degree;
     repaint();
 }
 
